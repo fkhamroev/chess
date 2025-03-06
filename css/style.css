@@ -29,18 +29,20 @@ body {
   color: #00363f;
   width: 100%;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(2.65px);
+  border-bottom: 3px solid #fff;
+  background: #e6fbfd;
+  backdrop-filter: blur(2.6500000953674316px);
+  margin: 0 auto;
 }
 
 .nav {
-  border-bottom: 3px solid #fff;
-  padding: 22px 44px;
+  padding: 18px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 1000;
+  margin: 0 auto;
 }
 
 .nav-left {
@@ -421,17 +423,15 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  /* height: 600px; */
   z-index: 1;
   max-width: 1440px;
   width: 100%;
-  overflow: hidden;
 }
 
 .history-overlay svg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .history .container {
@@ -672,6 +672,18 @@ body {
   position: relative;
   padding: 80px 0;
 }
+.hotels-line {
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(44, 137, 148, 0),
+    #2c8994,
+    #cee6e9,
+    #d9f4f7,
+    rgba(217, 244, 247, 0)
+  );
+}
 
 .hotels h1 {
   width: 1079px;
@@ -713,6 +725,8 @@ body {
   position: static;
   margin: 0;
   cursor: pointer;
+  width: 47px !important;
+  height: 47px !important;
 }
 
 .hotels .swiper-button-next::after,
@@ -967,7 +981,7 @@ body {
 
 .footer-copy {
   color: #5fa2b6;
-  font-size: 14.046px;
+  font-size: 17px;
   font-weight: 400;
   letter-spacing: 0.661px;
 }
@@ -1064,7 +1078,7 @@ body {
   }
 
   .history-overlay {
-    height: unset
+    height: unset;
   }
   .news-cards {
     padding: 0 20px;
@@ -1116,7 +1130,7 @@ body {
     font-size: 30px;
   }
   .register-form {
-    padding-bottom: 40px;
+    padding: 50px 0;
   }
   .sponsor {
     padding: 30px;
@@ -1131,15 +1145,6 @@ body {
 
   .footer {
     padding: 20px;
-  }
-
-  .footer .container {
-    align-items: center;
-  }
-  .footer-top {
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
   }
 
   .footer-sponsors {
@@ -1183,7 +1188,8 @@ body {
 
   .banner {
     height: auto;
-    min-height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
   }
   .banner-img {
     max-height: 500px;
@@ -1206,7 +1212,7 @@ body {
 @media (max-width: 548px) {
   .banner {
     overflow: hidden;
-    padding-bottom: 30px;
+    padding: 30px;
   }
   .banner-titles {
     gap: 8px;
@@ -1216,7 +1222,7 @@ body {
   }
   .banner-content,
   .history .container {
-    padding: 0;
+    padding: 50px 0;
   }
   .history-content {
     gap: 15px;
