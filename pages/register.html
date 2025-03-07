@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Olympiad 2025</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/header_banner/chess_logo.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/header_banner/chess_logo.svg"
+    />
+    <meta name="theme-color" content="#17a8d0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="register-page">
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav-left">
+          <div class="logo-wrapper">
+            <a href="../index.html" class="logo">
+              <img
+                src="../assets/header_banner/chess_logo.svg"
+                alt="Chess Olympiad 2025"
+              />
+            </a>
+
+            <div class="logo-text">
+              <div>46th FIDE CHESS OLYMPIAD</div>
+              <strong>SAMARKAND 2025</strong>
+            </div>
+          </div>
+          <div class="nav-line"></div>
+          <img
+            class="fide-logo"
+            src="../assets/header_banner/fide.svg"
+            alt="fide"
+          />
+        </div>
+        <button class="menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list">
+          <a href="#"><li class="nav-item">About</li></a>
+          <a href="#"><li class="nav-item">Schedule</li></a>
+          <a href="#"> <li class="nav-item">Participants</li></a>
+          <a href="#"><li class="nav-item">Tickets</li></a>
+          <li class="nav-item lang-selector">
+            <button class="lang-btn">EN</button>
+            <ul class="lang-dropdown">
+              <li><a href="?lang=en" class="active">EN</a></li>
+              <li><a href="?lang=ru">RU</a></li>
+              <li><a href="?lang=uz">UZ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="mobile-menu">
+          <ul class="nav-list">
+            <li class="nav-item lang-selector">
+              <ul class="lang-dropdown">
+                <li><a href="?lang=en" class="active">EN</a></li>
+                <li><a href="?lang=ru">RU</a></li>
+                <li><a href="?lang=uz">UZ</a></li>
+              </ul>
+            </li>
+            <a href="#"><li class="nav-item">About</li></a>
+            <a href="#"><li class="nav-item">Schedule</li></a>
+            <a href="#"> <li class="nav-item">Participants</li></a>
+            <a href="#"><li class="nav-item">Tickets</li></a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      <section class="register-personal">
+        <div class="register-personal-top">
+          <h1>Register <br />for Accreditation Pass</h1>
+          <div>
+            <img
+              src="../assets/register-page/chess-logo.svg"
+              alt="chess-logo"
+            />
+            <div class="register-logo-text">
+              <span>46th FIDE CHESS OLYMPIAD</span>
+              <strong>SAMARKAND 2025</strong>
+            </div>
+          </div>
+        </div>
+        <form action="">
+          <div class="personal-info">Personal Information</div>
+          <div class="input-section1">
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="name" class="input-label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="national-federation" class="input-label"
+                  >National Federation</label
+                >
+                <select class="input-select">
+                  <option value="" disabled selected>
+                    FIDE Federation Code
+                  </option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="first-name" class="input-label">First Name</label>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="last-name" class="input-label">Last Name</label>
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="date-of-birth" class="input-label"
+                  >Date of birth</label
+                >
+                <div class="date-container" onclick="openDatePicker()">
+                  <input
+                    type="date"
+                    id="datePicker"
+                    class="date-input"
+                    onchange="updateDate()"
+                  />
+                  <span id="datePlaceholder" class="placeholder"
+                    >DD/MM/YYYY</span
+                  >
+                  <img
+                    src="../assets/register-page/calendar-icon.svg"
+                    class="calendar-icon"
+                  />
+                </div>
+              </div>
+              <div class="radio-group">
+                <label for="gender" class="input-label">Gender</label>
+                <div>
+                  <label class="radio-label">
+                    <input type="radio" name="gender" value="male" checked />
+                    <span class="custom-radio"></span>
+                    Male
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="gender" value="female" />
+                    <span class="custom-radio"></span>
+                    Female
+                  </label>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="national-federation" class="input-label"
+                  >Citizenship</label
+                >
+                <select class="input-select">
+                  <option value="" disabled selected>Citizenship</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="personal-info">Passport & Visa Details</div>
+          <div class="input-section2">
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="passport-id" class="input-label"
+                  >Passport / ID Number</label
+                >
+                <input
+                  type="text"
+                  id="passport-id"
+                  name="passport-id"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="first-name" class="input-label"
+                  >First Name <span>(as in Passport)</span></label
+                >
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="last-name" class="input-label"
+                  >Last Name <span>(as in Passport)</span></label
+                >
+                <input
+                  type="text"
+                  id="last-name"
+                  name="last-name"
+                  class="input-text"
+                  required
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="date-of-issue" class="input-label"
+                  >Date of issue</label
+                >
+                <div class="date-container" onclick="openDatePicker()">
+                  <input
+                    type="date"
+                    id="datePicker"
+                    class="date-input"
+                    onchange="updateDate()"
+                  />
+                  <span id="datePlaceholder" class="placeholder"
+                    >DD/MM/YYYY</span
+                  >
+                  <img
+                    src="../assets/register-page/calendar-icon.svg"
+                    class="calendar-icon"
+                  />
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="date-of-expiry" class="input-label"
+                  >Date of expiry</label
+                >
+                <div class="date-container" onclick="openDatePicker()">
+                  <input
+                    type="date"
+                    id="datePicker"
+                    class="date-input"
+                    onchange="updateDate()"
+                  />
+                  <span id="datePlaceholder" class="placeholder"
+                    >DD/MM/YYYY</span
+                  >
+                  <img
+                    src="../assets/register-page/calendar-icon.svg"
+                    class="calendar-icon"
+                  />
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="issuing-authority" class="input-label"
+                  >Issuing Authority</label
+                >
+                <input
+                  type="text"
+                  id="issuing-authority"
+                  name="issuing-authority"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="issuing-authority" class="input-label"
+                  >Copy of Passport</label
+                >
+                <div class="file-upload">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    class="hidden-input"
+                    accept=".jpg, .jpeg, .pdf"
+                  />
+                  <label for="fileInput" class="file-label">
+                    Upload file
+                    <span class="file-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M10.1843 6.05955L4.71295 11.5446L4.70837 11.5401L4.60303 11.6505L4.49821 11.7604L4.434 11.8252L4.43387 11.8251L4.42896 11.8305L4.38879 11.8753L4.38864 11.8751L4.38368 11.8813C4.35497 11.9169 4.33019 11.9545 4.30929 11.9934C3.46714 13.1442 3.56578 14.7683 4.6055 15.8081C5.717 16.9196 7.49656 16.9556 8.65153 15.9171L8.67652 15.8964L8.68199 15.8919L8.687 15.8869L15.287 9.28824L15.287 9.28827L15.2895 9.28567L15.4307 9.13765L15.4307 9.13766L15.4325 9.13571C17.1112 7.31132 17.0658 4.47082 15.2964 2.70141C13.5009 0.90593 10.6024 0.885672 8.78325 2.64117L8.78113 2.64061L8.72033 2.70142L1.55868 9.8644L1.55839 9.86411L1.55121 9.87243L1.49675 9.93552L1.49644 9.93526L1.48983 9.94416C1.28278 10.2232 1.30564 10.619 1.55869 10.872C1.83693 11.1503 2.28806 11.1503 2.56631 10.872L9.71856 3.71977L9.71878 3.72L9.72527 3.7126L9.73019 3.70699L9.84977 3.59331C11.1157 2.45086 13.0692 2.48944 14.2888 3.70904C15.5483 4.96849 15.5483 7.01049 14.2901 8.27016L7.66988 14.8887C7.07208 15.397 6.17405 15.3687 5.60944 14.8041C5.05318 14.2479 5.01754 13.3679 5.50264 12.7704L11.1933 7.06585L11.1936 7.06613L11.2008 7.05778L11.2552 6.99462L11.2555 6.99489L11.2621 6.98597C11.4687 6.70666 11.4454 6.31092 11.192 6.05821L11.1923 6.05792L11.1839 6.05074L11.1208 5.99637L11.121 5.99605L11.1121 5.98946C10.8328 5.78279 10.4371 5.80617 10.1844 6.05954C10.1844 6.05954 10.1844 6.05955 10.1843 6.05955Z"
+                          fill="#176670"
+                          stroke="#176670"
+                          stroke-width="0.3"
+                        />
+                      </svg>
+                    </span>
+                  </label>
+                  <div id="fileName" class="file-name"></div>
+                  <div class="accepted-types">
+                    Only JPEG/PDF formats. File size not exceeding 5MB
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="radio-group">
+                <label for="citizenship" class="input-label"
+                  >Does your citizenship require a visa to Uzbekistan?</label
+                >
+                <div>
+                  <label class="radio-label">
+                    <input
+                      type="radio"
+                      name="citizenship"
+                      value="yes"
+                      checked
+                    />
+                    <span class="custom-radio"></span>
+                    Yes
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="citizenship" value="no" />
+                    <span class="custom-radio"></span>
+                    No
+                  </label>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="national-federation" class="input-label"
+                  >Country/City where you will apply for a visa</label
+                >
+                <select class="input-select">
+                  <option value="" disabled selected>
+                    FIDE Federation Code
+                  </option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="personal-info">Photo & Contact Information</div>
+          <div class="input-section3">
+            <div class="input-group">
+              <div class="input-wrapper">
+                <label for="issuing-authority" class="input-label"
+                  >Photo for Accreditation</label
+                >
+                <div class="file-upload">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    class="hidden-input"
+                    accept=".jpg, .jpeg, .pdf"
+                  />
+                  <label for="fileInput" class="file-label">
+                    Upload file
+                    <span class="file-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M10.1843 6.05955L4.71295 11.5446L4.70837 11.5401L4.60303 11.6505L4.49821 11.7604L4.434 11.8252L4.43387 11.8251L4.42896 11.8305L4.38879 11.8753L4.38864 11.8751L4.38368 11.8813C4.35497 11.9169 4.33019 11.9545 4.30929 11.9934C3.46714 13.1442 3.56578 14.7683 4.6055 15.8081C5.717 16.9196 7.49656 16.9556 8.65153 15.9171L8.67652 15.8964L8.68199 15.8919L8.687 15.8869L15.287 9.28824L15.287 9.28827L15.2895 9.28567L15.4307 9.13765L15.4307 9.13766L15.4325 9.13571C17.1112 7.31132 17.0658 4.47082 15.2964 2.70141C13.5009 0.90593 10.6024 0.885672 8.78325 2.64117L8.78113 2.64061L8.72033 2.70142L1.55868 9.8644L1.55839 9.86411L1.55121 9.87243L1.49675 9.93552L1.49644 9.93526L1.48983 9.94416C1.28278 10.2232 1.30564 10.619 1.55869 10.872C1.83693 11.1503 2.28806 11.1503 2.56631 10.872L9.71856 3.71977L9.71878 3.72L9.72527 3.7126L9.73019 3.70699L9.84977 3.59331C11.1157 2.45086 13.0692 2.48944 14.2888 3.70904C15.5483 4.96849 15.5483 7.01049 14.2901 8.27016L7.66988 14.8887C7.07208 15.397 6.17405 15.3687 5.60944 14.8041C5.05318 14.2479 5.01754 13.3679 5.50264 12.7704L11.1933 7.06585L11.1936 7.06613L11.2008 7.05778L11.2552 6.99462L11.2555 6.99489L11.2621 6.98597C11.4687 6.70666 11.4454 6.31092 11.192 6.05821L11.1923 6.05792L11.1839 6.05074L11.1208 5.99637L11.121 5.99605L11.1121 5.98946C10.8328 5.78279 10.4371 5.80617 10.1844 6.05954C10.1844 6.05954 10.1844 6.05955 10.1843 6.05955Z"
+                          fill="#176670"
+                          stroke="#176670"
+                          stroke-width="0.3"
+                        />
+                      </svg>
+                    </span>
+                  </label>
+                  <div id="fileName" class="file-name"></div>
+                  <div class="accepted-types">
+                    Only JPEG/PDF formats. File size not exceeding 5MB
+                  </div>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <label for="passport-id" class="input-label"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="input-text"
+                  required
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="passport-id" class="input-label"
+                  >Phone Number</label
+                >
+                <div class="phone-input">
+                  <div class="select-wrapper">
+                    <select class="country-select">
+                      <option value="+998">UZ (+998)</option>
+                      <option value="+7">RU (+7)</option>
+                      <option value="+1">US (+1)</option>
+                      <option value="+44">UK (+44)</option>
+                    </select>
+                  </div>
+                  <div class="separator"></div>
+                  <input
+                    type="tel"
+                    placeholder="Enter phone number"
+                    class="phone-field"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="example">
+              <img src="../assets/register-page/example.svg" alt="example" />
+              <ul>
+                <li>Background: <span>Light and uniform</span></li>
+                <li>
+                  Face Coverage:
+                  <span
+                    >Head and shoulders visible, at least 60% of the image</span
+                  >
+                </li>
+                <li>
+                  No Obstructions:
+                  <span
+                    >No dark sunglasses, masks, or hair covering eyes, nose, or
+                    mouth</span
+                  >
+                </li>
+                <li>
+                  No Headwear:
+                  <span>Except for medical or religious reasons</span>
+                </li>
+                <li>Eyes Open: <span>No colored contact lenses</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="terms">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="terms" id="terms" required />
+              <span class="checkmark">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                >
+                  <path
+                    d="M2 6.99999L4.76923 10L11 3.25"
+                    stroke="#39585C"
+                    stroke-width="1.37813"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </label>
+            <label for="terms">
+              I agree to the Terms & Conditions and Privacy Policy of the 46th
+              FIDE Chess Olympiad, including the processing of my personal data
+              for accreditation and event participation.</label
+            >
+          </div>
+          <button type="submit" class="btn btn-form">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo">
+            <a href="#">
+              <img
+                src="../assets/footer/footer-logo.svg"
+                alt="Chess Olympiad"
+              />
+            </a>
+            <div class="footer-logo-text">
+              <div>46th FIDE CHESS OLYMPIAD</div>
+              <strong>SAMARKAND 2025</strong>
+            </div>
+          </div>
+          <div class="footer-sponsors">
+            <img src="../assets/footer/footer-sponsor1.svg" alt="sponsor1" />
+          </div>
+        </div>
+        <div class="footer-nav">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">Participants</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Venue</a></li>
+            <li><a href="#">Accredation </a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Standings</a></li>
+          </ul>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-copy">
+          &copy; Copyrights 2025 Uzbekistan Chess Federation & FIDE
+          International Chess Federation. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
