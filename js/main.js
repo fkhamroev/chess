@@ -117,6 +117,32 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// News slider
+const newsSlider = new Swiper(".news-slider", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  grabCursor: true,
+  speed: 600,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: "auto",
+      spaceBetween: 24,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
+});
+
 function openDatePicker() {
   document.getElementById("datePicker").showPicker();
 }
