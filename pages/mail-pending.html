@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pending</title>
+    <style>
+      @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded /Unbounded-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded /Unbounded-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Unbounded";
+        src: url("../fonts/Unbounded /Unbounded-Bold.ttf") format("truetype");
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      /* SF Pro Display font */
+      @font-face {
+        font-family: "SF Pro Display";
+        src: url("../fonts/Pro-display/SFPRODISPLAYREGULAR.OTF")
+          format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "SF Pro Display";
+        src: url("../fonts/Pro-display/SFPRODISPLAYMEDIUM.OTF")
+          format("opentype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "SF Pro Display";
+        src: url("../fonts/Pro-display/SFPRODISPLAYBOLD.OTF") format("opentype");
+        font-weight: bold;
+        font-style: normal;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "SF Pro Display";
+      }
+      .mail-process {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        max-width: 100%;
+        width: 722px;
+        padding: 53px;
+      }
+      .mail-process-header {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 52px;
+      }
+      .mail-process-header svg {
+        width: 51.426px;
+        height: 49.936px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+      .mail-process-header div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .mail-process-header div span {
+        color: #00363f;
+        font-family: "Unbounded";
+        font-size: 9.575px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .mail-process-header div strong {
+        color: #00363f;
+        font-family: "Unbounded";
+        font-size: 13.883px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: -0.278px;
+      }
+      .mail-process-header-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mail-welcome {
+        margin-bottom: 61px;
+      }
+      .mail-welcome h1 {
+        color: #081a1e;
+        font-family: "Unbounded";
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 150%; /* 33px */
+        letter-spacing: 0.44px;
+        text-transform: uppercase;
+        margin-bottom: 47px;
+      }
+      .mail-welcome div {
+        color: #546668;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%; /* 28.8px */
+        letter-spacing: -0.18px;
+      }
+      .mail-welcome strong {
+        color: #1f3a3e;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 160%;
+        letter-spacing: -0.18px;
+      }
+      .mail-process-status {
+        color: #1f3a3e;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 160%; /* 28.8px */
+        letter-spacing: -0.18px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 61px;
+      }
+      .mail-process-status span {
+        border-radius: 12px;
+        border: 1px solid #9dcae4;
+        background: rgba(226, 244, 255, 0.54);
+        display: flex;
+        width: 132px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: #167eb2;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%; /* 28.8px */
+        letter-spacing: -0.18px;
+        margin-left: 12px;
+      }
+      .mail-list { 
+        display: flex;
+        flex-direction: column;
+        gap: 42px;
+      }
+      .mail-text {
+        color: #546668;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 167%; /* 30.06px */
+        letter-spacing: -0.18px;
+      }
+      .mail-list ul {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin-bottom: 42px;
+      }
+      .mail-list ul li {
+        color: #27393C;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 167%   ; /* 30.06px */
+        letter-spacing: -0.18px;
+      }
+
+      .mail-footer div {
+        color: #546668;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%;
+        letter-spacing: -0.18px;
+        margin-bottom: 25px;
+      }
+      .mail-footer h1 {
+        color: #0d2022;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 218%;
+        letter-spacing: -0.18px;
+        margin-bottom: 5px;
+      }
+      .mail-footer h3 {
+        color: #1f3a3e;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 218%;
+        letter-spacing: -0.18px;
+      }
+      .mail-footer span {
+        color: #447177;
+        font-family: "SF Pro Display";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        letter-spacing: -0.18px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="mail-process">
+      <div class="mail-process-header">
+        <div class="mail-process-header-icon">
+          <svg
+            width="46"
+            height="51"
+            viewBox="0 0 46 51"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.67517 9.5091C5.60193 9.67999 5.57752 17.4678 5.60193 26.7937L5.67517 43.7609H6.6517H7.62823L7.70147 27.5749L7.75029 11.4133H22.8865H38.0227L38.0715 27.5749L38.1448 43.7609H39.1213H40.0978V26.5495V9.3382L22.9353 9.26497C9.33715 9.21614 5.74841 9.26497 5.67517 9.5091Z"
+              fill="#00363F"
+            />
+            <path
+              d="M13.6094 23.2293V32.1645H15.7577H17.9305L20.2742 29.8452C21.5925 28.5758 22.6423 27.5016 22.6423 27.4527C22.6423 27.4039 22.0319 27.3307 21.2995 27.3063C19.9812 27.2819 19.9568 27.2819 18.492 28.7466C17.2958 29.9429 16.8563 30.2359 16.3437 30.1626L15.6845 30.0894L15.6357 25.9635C15.6113 22.3992 15.538 21.6912 15.0986 20.6659C14.8056 20.0311 14.5859 19.4452 14.5859 19.372C14.5859 19.2987 15.1962 19.5184 15.9286 19.8602C17.0028 20.3241 17.6864 20.4461 19.2488 20.4461C21.5681 20.4461 22.4958 20.8123 23.7165 22.1795C24.6686 23.2048 25.6695 25.0602 25.9136 26.1833C26.0601 26.8668 25.7916 27.1842 20.8113 32.1645C17.9305 35.0453 15.5624 37.4866 15.5624 37.5842C15.5624 37.7063 19.2977 37.7795 23.8629 37.7795H32.1634V35.1673V32.5551L30.6254 34.0687L29.0874 35.5824H27.647H26.1822L29.185 32.5795L32.1634 29.6011V27.8678C32.1634 22.8142 28.9897 17.5166 24.6442 15.3682L22.7887 14.4649L18.1991 14.3917L13.6094 14.294V23.2293ZM22.3981 16.6865C26.4019 17.8828 29.6245 22.1551 30.1127 26.9157L30.2836 28.5513L26.7681 32.0668L23.2526 35.5824H21.7878H20.323L24.3024 31.603L28.2573 27.6481L27.9888 26.1833C27.4517 23.2293 25.4986 20.4217 23.0817 19.1034C21.8855 18.4443 21.5437 18.371 18.6873 18.2978L15.5624 18.2001V17.3945C15.5624 16.9795 15.6357 16.54 15.7333 16.4668C16.0507 16.125 21.0798 16.2959 22.3981 16.6865Z"
+              fill="#00363F"
+            />
+            <path
+              d="M11.6562 39.7327V40.7092H22.8863H34.1164V39.7327V38.7562H22.8863H11.6562V39.7327Z"
+              fill="#00363F"
+            />
+            <path
+              d="M9.45898 42.7843V43.8829H22.8863H36.3135V42.7843V41.6857H22.8863H9.45898V42.7843Z"
+              fill="#00363F"
+            />
+          </svg>
+        </div>
+        <div>
+          <span>46th FIDE CHESS OLYMPIAD</span>
+          <strong>SAMARKAND 2025</strong>
+        </div>
+      </div>
+      <div class="mail-welcome">
+        <h1>
+          Статус вашей заявки <br />
+          на участие в мероприятии
+        </h1>
+        <div>Уважаемый <strong>Алишер Абдуллаев</strong>,</div>
+        <br />
+        <div>
+          Благодарим вас за подачу заявки на участие в нашем мероприятии. Для
+          завершения процесса рассмотрения вашей заявки нам необходимы
+          дополнительные сведения.
+        </div>
+      </div>
+      <div class="mail-process-status">
+        Сообщаем вам, что статус вашей заявки: <span>В ожидании</span>
+      </div>
+        <div class="mail-list">
+            <div class="mail-text">Пожалуйста, предоставьте следующую информацию:</div>
+            <ul><li>
+                Копия пасспорта
+            </li>
+        <li>Фото 3x4</li></ul>
+        </div>
+        <br>
+        <div class="mail-text">Вы можете отправить эти данные, ответив на данное письмо или связавшись с нами по электронной почте <strong> <a href="mailto:support@fide.com">support@fide.com</a></strong>. После получения необходимой информации мы сможем продолжить обработку вашей заявки.</div>
+        <br>
+        <div class="mail-text">Мы ценим ваше стремление принять участие и надеемся на возможность сотрудничества в будущем. Если у вас возникнут дополнительные вопросы, свяжитесь с нами по электронной почте  или по номеру  +998 94 765 43 21</div>
+        <br>
+        <br>
+        <div class="mail-footer">
+            <div>С уважением,</div>
+            <h1>Дилшод Алимов</h1>
+            <h3>FIDE Uzbekistan Representative</h3>
+            <span>dilshod.a@fide.com</span>
+          </div>
+      </div>
+
+    </div>
+  </body>
+</html>
