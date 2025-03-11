@@ -143,23 +143,93 @@ const newsSlider = new Swiper(".news-slider", {
   },
 });
 
-function openDatePicker() {
-  document.getElementById("datePicker").showPicker();
-}
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("click", function (event) {
+    if (event.target.closest(".date-container")) {
+      const container = event.target.closest(".date-container");
+      const dateInput = container.querySelector(".date-input");
+      dateInput.showPicker();
+    }
+  });
 
-function updateDate() {
-  const dateInput = document.getElementById("datePicker");
-  const datePlaceholder = document.getElementById("datePlaceholder");
+  document.addEventListener("change", function (event) {
+    if (event.target.classList.contains("date-input")) {
+      const dateInput = event.target;
+      const container = dateInput.closest(".date-container");
+      const datePlaceholder = container.querySelector(".placeholder");
 
-  if (dateInput.value) {
-    const dateParts = dateInput.value.split("-"); // YYYY-MM-DD
-    const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
-    datePlaceholder.textContent = formattedDate;
-    datePlaceholder.style.color = "#000"; // Делаем текст черным после выбора
+      if (dateInput.value) {
+        const [year, month, day] = dateInput.value.split("-");
+        const formattedDate = `${day}/${month}/${year}`;
+        datePlaceholder.textContent = formattedDate;
+        datePlaceholder.style.color = "#000";
+      }
+    }
+  });
+});
+
+
+// Verification input
+document.addEventListener("DOMContentLoaded", function () {
+  const inputs = document.querySelectorAll(".verification-input");
+  const verifyButton = document.querySelector(".btn-form");
+
+  function checkInputs() {
+    const allFilled = [...inputs].every((input) => input.value.trim() !== "");
+    if (allFilled) {
+      verifyButton.classList.remove("disabled");
+      verifyButton.removeAttribute("disabled");
+    } else {
+      verifyButton.classList.add("disabled");
+      verifyButton.setAttribute("disabled", "true");
+    }
   }
-}
 
-document.getElementById("fileInput").addEventListener("change", function () {
-  const fileName = this.files[0] ? this.files[0].name : "No file chosen";
-  document.getElementById("fileName").textContent = fileName;
+  inputs.forEach((input, index) => {
+    input.addEventListener("input", (e) => {
+      if (!/^\d$/.test(e.target.value)) {
+        e.target.value = "";
+        return;
+      }
+
+      if (index < inputs.length - 1 && e.target.value) {
+        inputs[index + 1].focus();
+      }
+
+      checkInputs();
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" && !e.target.value && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+
+    input.addEventListener("paste", (e) => {
+      e.preventDefault();
+      const pastedText = (e.clipboardData || window.clipboardData).getData(
+        "text"
+      );
+
+      if (/^\d{6}$/.test(pastedText)) {
+        pastedText.split("").forEach((char, i) => {
+          if (inputs[i]) {
+            inputs[i].value = char;
+          }
+        });
+
+        inputs[inputs.length - 1].focus();
+        checkInputs();
+      }
+    });
+  });
+
+  verifyButton.setAttribute("disabled", "true");
+  verifyButton.classList.add("disabled");
+
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const code = [...inputs].map((input) => input.value).join("");
+    console.log("code:", code);
+  });
 });
