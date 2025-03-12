@@ -154,12 +154,13 @@
                 <label for="date-of-birth" class="input-label"
                   >Date of birth</label
                 >
-                <div class="date-container" onclick="openDatePicker()">
+
+                <div class="date-container" onclick="openDatePicker(this)">
                   <input
                     type="date"
-                    id="datePicker"
+                    id="birth"
                     class="date-input"
-                    onchange="updateDate()"
+                    onchange="updateDate(this)"
                   />
                   <span id="datePlaceholder" class="placeholder"
                     >DD/MM/YYYY</span
@@ -198,6 +199,7 @@
             </div>
           </div>
           <div class="personal-info">Passport & Visa Details</div>
+          <!-- update start -->
           <div class="input-section2">
             <div class="input-group">
               <div class="input-wrapper">
@@ -242,12 +244,12 @@
                 <label for="date-of-issue" class="input-label"
                   >Date of issue</label
                 >
-                <div class="date-container" onclick="openDatePicker()">
+                <div class="date-container" onclick="openDatePicker(this)">
                   <input
                     type="date"
-                    id="datePicker"
+                    id="issue"
                     class="date-input"
-                    onchange="updateDate()"
+                    onchange="updateDate(this)"
                   />
                   <span id="datePlaceholder" class="placeholder"
                     >DD/MM/YYYY</span
@@ -262,12 +264,12 @@
                 <label for="date-of-expiry" class="input-label"
                   >Date of expiry</label
                 >
-                <div class="date-container" onclick="openDatePicker()">
+                <div class="date-container" onclick="openDatePicker(this)">
                   <input
                     type="date"
-                    id="datePicker"
+                    id="expiry"
                     class="date-input"
-                    onchange="updateDate()"
+                    onchange="updateDate(this)"
                   />
                   <span id="datePlaceholder" class="placeholder"
                     >DD/MM/YYYY</span
@@ -489,7 +491,8 @@
               for accreditation and event participation.</label
             >
           </div>
-          <button type="submit" class="btn btn-form">Submit</button>
+          <button type="submit" class="btn">Submit</button>
+          <!-- update end -->
         </form>
       </section>
     </main>

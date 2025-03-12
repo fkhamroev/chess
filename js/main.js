@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const header = document.querySelector(".header");
 
-  // Функция для переключения меню
   function toggleMenu() {
     const isActive = mobileMenu.classList.toggle("active");
     menuBtn.classList.toggle("active", isActive);
 
-    // Отключаем скролл при открытом меню
     if (isActive) {
       body.style.overflow = "hidden";
       body.style.position = "fixed";
@@ -23,10 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Клик по кнопке меню
   menuBtn.addEventListener("click", toggleMenu);
 
-  // Закрытие при клике вне меню
   document.addEventListener("click", function (e) {
     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
       menuBtn.classList.remove("active");
@@ -52,12 +48,10 @@ function updateLanguage(lang) {
     }
   });
 
-  // Update button text
   langBtns.forEach((btn) => {
     btn.textContent = lang.toUpperCase();
   });
 
-  // Store selected language
   localStorage.setItem("selectedLanguage", lang);
 }
 
@@ -258,29 +252,21 @@ document.querySelectorAll(".lang-dropdown a").forEach((link) => {
   });
 });
 
+function disableScroll() {
+  document.body.style.overflow = "hidden";
+  document.documentElement.style.overflow = "hidden";
+}
+
+function enableScroll() {
+  document.body.style.overflow = "";
+  document.documentElement.style.overflow = "";
+}
+
 // FIDE ID check
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("modal");
   const form = document.getElementById("fideForm");
-  const body = document.body;
   const closeModal = document.querySelector(".close");
-
-  function disableScroll() {
-    const scrollY = window.scrollY;
-    body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
-    body.style.overflow = "hidden";
-    body.style.width = "100%";
-  }
-
-  function enableScroll() {
-    const scrollY = body.style.top;
-    body.style.position = "";
-    body.style.top = "";
-    body.style.overflow = "";
-    body.style.width = "";
-    window.scrollTo(0, parseInt(scrollY || "0") * -1);
-  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -289,6 +275,56 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   closeModal.addEventListener("click", function () {
+    modal.classList.remove("active");
+    enableScroll();
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      enableScroll();
+    }
+  });
+});
+
+function openDatePicker(container) {
+  const dateInput = container.querySelector(".date-input");
+  dateInput.showPicker();
+}
+
+function updateDate(input) {
+  const container = input.closest(".date-container");
+  const datePlaceholder = container.querySelector(".placeholder");
+
+  if (input.value) {
+    const dateParts = input.value.split("-"); // YYYY-MM-DD
+    const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+    datePlaceholder.textContent = formattedDate;
+    datePlaceholder.style.color = "#000";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.querySelector(".hotel-modal");
+  const closeBtn = document.querySelector(".modal-close");
+  const images = document.querySelectorAll(".hotel-img");
+  const swiperInstance = new Swiper(".hotel-swiper", {
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", function () {
+      modal.classList.add("active");
+      swiperInstance.slideTo(index, 0);
+      disableScroll();
+    });
+  });
+
+  closeBtn.addEventListener("click", function () {
     modal.classList.remove("active");
     enableScroll();
   });
