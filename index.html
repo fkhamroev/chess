@@ -62,7 +62,7 @@
           <a href="#"> <li class="nav-item">Participants</li></a>
           <a href="#"><li class="nav-item">Tickets</li></a>
           <li class="nav-item lang-selector">
-            <button class="lang-btn">EN</button>
+            <a href="?lang=en" class="lang-btn">EN</a>
             <ul class="lang-dropdown">
               <li><a href="?lang=en" class="active">EN</a></li>
               <li><a href="?lang=ru">RU</a></li>
@@ -90,9 +90,11 @@
         <div class="container">
           <div class="banner-content">
             <div class="banner-titles">
-              <h3>46th FIDE</h3>
+              <!-- banner titles -->
+              <span>46th FIDE</span>
               <h1>CHESS OLYMPIAD</h1>
-              <h3>Samarkand 2025</h3>
+              <span>Samarkand 2025</span>
+              <!-- banner text -->
               <div>
                 The world's greatest chess minds converge in Samarkand,
                 Uzbekistan, for the 46th FIDE Chess Olympiad, will compete in
@@ -126,8 +128,10 @@
       </div>
     </header>
     <main>
+      <!-- history section changes  -->
       <section class="history">
-        <img src="./assets/main/history-image.svg" alt="">
+        <img src="./assets/main/history-image.svg" alt="" />
+        <img src="./assets/main/substract.svg" alt="" class="substract" />
         <div class="container">
           <div class="history-content">
             <div class="history-title">
@@ -142,18 +146,23 @@
             <button class="btn">action button</button>
           </div>
         </div>
-        <div class="white-box"></div>
       </section>
       <section class="register container">
+        <!-- register section changes  -->
         <div class="register-form">
           <h2>Register for the event</h2>
-          <div>Please input your FIDE ID to proceed to registration pagez</div>
+          <div class="register-text">
+            Please input your FIDE ID to proceed to registration pagez
+          </div>
           <form action="">
             <label for="fide-id">FIDE ID</label>
-            <input type="text" id="fide-id" class="input" />
-            <button type="submit" class="btn">CHECK</button>
+            <div class="register-section">
+              <input type="text" id="fide-id" class="input" />
+              <button type="submit" class="btn">CHECK</button>
+            </div>
           </form>
         </div>
+        <!-- register section end  -->
       </section>
       <section class="sponsor">
         <div class="container">
@@ -190,56 +199,64 @@
       <section class="news container">
         <h1>Latest News</h1>
         <div class="news-cards">
+          <!-- news card changes  -->
           <div class="news-card">
-            <img src="./assets/news/news1.svg" alt="" />
-            <div class="news-card__content">
-              <h3>
-                Nodirbek Abdusattorov retains his position in FIDE rankings
-              </h3>
-              <span
-                >Nodirbek Abdusattorov remains in 6th place with a rating of
-                2766, unchanged from the previous ranking. However, his rating
-                points decreased by two, down from 2768.
-              </span>
-              <div class="news-card__date">
-                <span>Sep 12, 2025</span>
-                <a href="" class="more">Read more</a>
+            <a href="">
+              <img src="./assets/news/news1.svg" alt="" />
+              <div class="news-card__content">
+                <h3>
+                  Nodirbek Abdusattorov retains his position in FIDE rankings
+                </h3>
+                <span
+                  >Nodirbek Abdusattorov remains in 6th place with a rating of
+                  2766, unchanged from the previous ranking. However, his rating
+                  points decreased by two, down from 2768.
+                </span>
+                <div class="news-card__date">
+                  <span>Sep 12, 2025</span>
+                  <a href="" class="news-more">Read more</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
           <div class="news-card">
-            <img src="./assets/news/news2.svg" alt="" />
-            <div class="news-card__content">
-              <h3>Fabiano Challenges Magnus for Chess Supremacy lorem50</h3>
-              <span
-                >The chess world witnessed yet another thrilling encounter
-                between Magnus Carlsen and Fabiano Caruana, two of the game’s
-                greatest minds. Facing off in the latest elite tournament,
-                Carlsen showcased his signature endgame mastery, while Caruana’s
-                deep preparation kept him in the fight.
-              </span>
-              <div class="news-card__date">
-                <span>Sep 12, 2025</span>
-                <a href="" class="more">Read more</a>
+            <a href="">
+              <img src="./assets/news/news2.svg" alt="" />
+              <div class="news-card__content">
+                <h3>Fabiano Challenges Magnus for Chess Supremacy lorem50</h3>
+                <span
+                  >The chess world witnessed yet another thrilling encounter
+                  between Magnus Carlsen and Fabiano Caruana, two of the game’s
+                  greatest minds. Facing off in the latest elite tournament,
+                  Carlsen showcased his signature endgame mastery, while
+                  Caruana’s deep preparation kept him in the fight.
+                </span>
+                <div class="news-card__date">
+                  <span>Sep 12, 2025</span>
+                  <a href="" class="news-more">Read more</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
           <div class="news-card">
-            <img src="./assets/news/news3.svg" alt="" />
-            <div class="news-card__content">
-              <h3>The Chess Olympiad 2025: Fierce Battles Ahead!</h3>
-              <span
-                >With the 46th FIDE Chess Olympiad just months away, national
-                teams are finalizing their lineups. Powerhouses like the USA,
-                India, China, and Norway are set to bring their strongest
-                squads,
-              </span>
-              <div class="news-card__date">
-                <span>Sep 12, 2025</span>
-                <a href="" class="more">Read more</a>
+            <a href="">
+              <img src="./assets/news/news3.svg" alt="" />
+              <div class="news-card__content">
+                <h3>The Chess Olympiad 2025: Fierce Battles Ahead!</h3>
+                <span
+                  >With the 46th FIDE Chess Olympiad just months away, national
+                  teams are finalizing their lineups. Powerhouses like the USA,
+                  India, China, and Norway are set to bring their strongest
+                  squads,
+                </span>
+                <div class="news-card__date">
+                  <span>Sep 12, 2025</span>
+                  <a href="" class="news-more">Read more</a>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
+          <!-- news card end  -->
         </div>
       </section>
       <div class="hotels-line"></div>
