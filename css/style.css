@@ -2064,6 +2064,9 @@ body {
   .passport-block-content-acc {
     grid-template-columns: repeat(3, 1fr);
   }
+  .history .container {
+    padding-top: 140px;
+  }
 
   /* Hotels page */
   .hotels-services {
@@ -2082,10 +2085,7 @@ body {
   .banner-img {
     max-height: 300px;
   }
-  .banner-content,
-  .history .container {
-    padding: 50px 0;
-  }
+
   .history-content {
     gap: 15px;
     padding: 0 20px;
