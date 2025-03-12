@@ -90,11 +90,11 @@
         <div class="container">
           <div class="banner-content">
             <div class="banner-titles">
-              <!-- banner titles -->
+              <!-- banner update start titles -->
               <span>46th FIDE</span>
               <h1>CHESS OLYMPIAD</h1>
               <span>Samarkand 2025</span>
-              <!-- banner text -->
+              <!-- banner update end text -->
               <div>
                 The world's greatest chess minds converge in Samarkand,
                 Uzbekistan, for the 46th FIDE Chess Olympiad, will compete in
@@ -128,7 +128,7 @@
       </div>
     </header>
     <main>
-      <!-- history section changes  -->
+      <!-- history update start  -->
       <section class="history">
         <img src="./assets/main/history-image.svg" alt="" />
         <img src="./assets/main/substract.svg" alt="" class="substract" />
@@ -147,22 +147,30 @@
           </div>
         </div>
       </section>
+      <!-- history update end  -->
       <section class="register container">
-        <!-- register section changes  -->
+        <!-- register update start  -->
         <div class="register-form">
           <h2>Register for the event</h2>
           <div class="register-text">
-            Please input your FIDE ID to proceed to registration pagez
+            Please input your FIDE ID to proceed to registration page
           </div>
-          <form action="">
+          <form action="" id="fideForm">
             <label for="fide-id">FIDE ID</label>
             <div class="register-section">
               <input type="text" id="fide-id" class="input" />
               <button type="submit" class="btn">CHECK</button>
             </div>
           </form>
+          <div class="modal" id="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>FIDE ID Check</h2>
+              <p>Ваш FIDE ID успешно проверен!</p>
+            </div>
+          </div>
         </div>
-        <!-- register section end  -->
+        <!-- register update end  -->
       </section>
       <section class="sponsor">
         <div class="container">
@@ -199,7 +207,7 @@
       <section class="news container">
         <h1>Latest News</h1>
         <div class="news-cards">
-          <!-- news card changes  -->
+          <!-- news update start  -->
           <div class="news-card">
             <a href="">
               <img src="./assets/news/news1.svg" alt="" />
@@ -256,7 +264,7 @@
               </div>
             </a>
           </div>
-          <!-- news card end  -->
+          <!-- news update end  -->
         </div>
       </section>
       <div class="hotels-line"></div>

@@ -257,3 +257,46 @@ document.querySelectorAll(".lang-dropdown a").forEach((link) => {
     window.location.href = this.href;
   });
 });
+
+// FIDE ID check
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("modal");
+  const form = document.getElementById("fideForm");
+  const body = document.body;
+  const closeModal = document.querySelector(".close");
+
+  function disableScroll() {
+    const scrollY = window.scrollY;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.overflow = "hidden";
+    body.style.width = "100%";
+  }
+
+  function enableScroll() {
+    const scrollY = body.style.top;
+    body.style.position = "";
+    body.style.top = "";
+    body.style.overflow = "";
+    body.style.width = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    modal.classList.add("active");
+    disableScroll();
+  });
+
+  closeModal.addEventListener("click", function () {
+    modal.classList.remove("active");
+    enableScroll();
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.classList.remove("active");
+      enableScroll();
+    }
+  });
+});
