@@ -72,7 +72,7 @@ updateLanguage(currentLang);
 
 // Sponsors slider
 const sponsorsSwiper = new Swiper(".sponsors-slider", {
-  slidesPerView: 3,
+  slidesPerView: 4,
   centeredSlides: true,
   spaceBetween: 30,
   loop: true,
@@ -89,11 +89,11 @@ const sponsorsSwiper = new Swiper(".sponsors-slider", {
       spaceBetween: 10,
     },
     768: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 20,
     },
     1024: {
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 30,
     },
   },
@@ -311,8 +311,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const swiperInstance = new Swiper(".hotel-swiper", {
     loop: true,
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".custom-swiper-button-next",
+      prevEl: ".custom-swiper-button-prev",
     },
   });
 
