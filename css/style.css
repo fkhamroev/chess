@@ -542,8 +542,9 @@ body {
 }
 
 .register-form form .btn {
-  width: 185px;
-  height: 42px;
+  min-width: 185px;
+  width: 100%;
+  padding: 12px;
 }
 /* Sponsor section */
 .sponsor {
@@ -1032,13 +1033,15 @@ body {
   line-height: 125%;
   letter-spacing: 0.204px;
   text-transform: uppercase;
-  padding: 12.405px 14.595px;
   cursor: pointer;
   border: none;
   font-family: Unbounded;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .btn::before {
