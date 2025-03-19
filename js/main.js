@@ -264,26 +264,40 @@ function enableScroll() {
 
 // FIDE ID check
 document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("modal");
+  const fideModal = document.getElementById("modal");
+  const defaultModal = document.getElementById("defaultModal");
   const form = document.getElementById("fideForm");
-  const closeModal = document.querySelector(".close");
+  const closeButtons = document.querySelectorAll(".close");
+
+  function disableScroll() {
+    document.body.style.overflow = "hidden";
+  }
+
+  function enableScroll() {
+    document.body.style.overflow = "";
+  }
+
+  closeButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const modalId = this.getAttribute("data-modal");
+      document.getElementById(modalId).classList.remove("active");
+      enableScroll();
+    });
+  });
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    modal.classList.add("active");
+    fideModal.classList.add("active");
     disableScroll();
   });
 
-  closeModal.addEventListener("click", function () {
-    modal.classList.remove("active");
-    enableScroll();
-  });
-
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      modal.classList.remove("active");
-      enableScroll();
-    }
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+        enableScroll();
+      }
+    });
   });
 });
 
@@ -335,4 +349,14 @@ document.addEventListener("DOMContentLoaded", function () {
       enableScroll();
     }
   });
+});
+
+document.getElementById("fileInput").addEventListener("change", function () {
+  const fileName = this.files[0] ? this.files[0].name : "No file chosen";
+  document.getElementById("fileName").textContent = fileName;
+});
+
+document.getElementById("photoInput").addEventListener("change", function () {
+  const fileName = this.files[0] ? this.files[0].name : "No file chosen";
+  document.getElementById("photoName").textContent = fileName;
 });
