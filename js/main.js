@@ -156,6 +156,14 @@ const newsSlider = new Swiper(".news-slider", {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize date input placeholder
+  const dateInputs = document.querySelectorAll('.date-input');
+  dateInputs.forEach(input => {
+    if (input.value) {
+      updateDate(input);
+    }
+  });
+
   document.addEventListener("click", function (event) {
     if (event.target.closest(".date-container")) {
       const container = event.target.closest(".date-container");
@@ -311,10 +319,13 @@ function updateDate(input) {
   const datePlaceholder = container.querySelector(".placeholder");
 
   if (input.value) {
-    const dateParts = input.value.split("-"); // YYYY-MM-DD
-    const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+    const [year, month, day] = input.value.split("-");
+    const formattedDate = `${day}/${month}/${year}`;
     datePlaceholder.textContent = formattedDate;
     datePlaceholder.style.color = "#000";
+  } else {
+    datePlaceholder.textContent = "DD/MM/YYYY";
+    datePlaceholder.style.color = "";
   }
 }
 
@@ -360,3 +371,4 @@ document.getElementById("photoInput").addEventListener("change", function () {
   const fileName = this.files[0] ? this.files[0].name : "No file chosen";
   document.getElementById("photoName").textContent = fileName;
 });
+

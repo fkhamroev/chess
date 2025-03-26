@@ -10,388 +10,480 @@
       href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-  </head>
-  <body
-    style="
-      display: flex;
-      font-family: 'Unbounded';
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    "
-  >
-    <div
-      class="badge"
-      style="
-        width: 420px;
-        height: 596px;
-        background: linear-gradient(
-          174deg,
-          #2488a6 -69.71%,
-          #c5e0e8 16.96%,
-          #fff 95.34%
-        );
-        overflow: hidden;
-        position: relative;
+    <style>
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+          background: none;
+        }
+        .badge-container {
+          width: 297mm;  
+          height: 210mm; 
+          margin: 0;
+          padding: 0;
+          display: flex;
+        }
+        .badge {
+          width: 148mm;  
+          height: 210mm; 
+          margin: 0;
+          padding: 0;
+          transform: scale(0.5);
+          transform-origin: center;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        button {
+          display: none !important;
+        }
+      }
+
+      /* Стили для экрана */
+      body {
+        margin: 0;
+        background: #f5f5f5;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-      "
-    >
+        align-items: center;
+      }
+
+      .badge-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .badge {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        width: 100%;
+        height: 100%;
+      }
+      .download-btn {
+        background: #2488a6;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Unbounded";
+        font-size: 16px;
+        transition: background 0.3s;
+        margin-top: 20px;
+        min-width: 200px;
+        text-align: center;
+      }
+
+      .download-btn:hover {
+        background: #1b6d8a;
+      }
+    </style>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="badge-container" id="badgeContainer">
       <div
-        class="badge-header"
-        style="display: flex; align-items: center; gap: 20px; height: 203.483px"
+        class="badge"
+        style="
+          background: linear-gradient(
+            174deg,
+            #2488a6 -69.71%,
+            #c5e0e8 16.96%,
+            #fff 95.34%
+          );
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+        "
       >
         <div
-          class="header-left"
+          class="badge-header"
           style="
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 220px;
-            height: 100%;
-            border-right: 1.641px solid rgba(0, 54, 63, 0.25);
-          "
-        >
-          <img
-            src=""
-            alt="logo"
-            style="
-              width: 127px;
-              height: 142px;
-              object-fit: contain;
-              border: 1px solid rgba(0, 54, 63, 0.25);
-            "
-          />
-        </div>
-        <div
-          class="header-right"
-          style="
-            width: 243.805px;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            gap: 20px;
+            height: 203.483px;
           "
         >
           <div
-            class="header-right-top"
+            class="header-left"
             style="
               display: flex;
               align-items: center;
-              gap: 22.97px;
-              margin-top: 29.54px;
+              justify-content: center;
+              width: 220px;
+              height: 100%;
+              border-right: 1.641px solid rgba(0, 54, 63, 0.25);
             "
           >
             <img
               src=""
-              alt="header-right-top"
+              alt="logo"
               style="
-                width: 42.666px;
-                height: 42.666px;
-                object-fit: contain;
-                border: 1px solid rgba(0, 54, 63, 0.25);
-              "
-            />
-            <img
-              src=""
-              alt="header-right-bottom"
-              style="
-                width: 72.204px;
-                height: 21.333px;
+                width: 127px;
+                height: 142px;
                 object-fit: contain;
                 border: 1px solid rgba(0, 54, 63, 0.25);
               "
             />
           </div>
-          <div class="header-right-bottom" style="margin-bottom: 29px">
-            <div
-              style="
-                color: #205f6a;
-                font-size: 9.846px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-              "
-            >
-              46th FIDE
-            </div>
-            <h3
-              style="
-                color: #00363f;
-                font-size: 14.769px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: normal;
-                letter-spacing: 0.886px;
-                margin-bottom: 6.56px;
-              "
-            >
-              CHESS OLYMPIAD
-            </h3>
-            <span
-              style="
-                color: #0e3f47;
-                font-size: 11.487px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                letter-spacing: -0.23px;
-                display: flex;
-              "
-              >SAMARKAND</span
-            >
-            <span
-              style="
-                color: #0e3f47;
-                font-size: 11.487px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                letter-spacing: -0.23px;
-                display: flex;
-              "
-              >2025</span
-            >
-          </div>
-        </div>
-      </div>
-      <div
-        class="badge-content"
-        style="
-          display: flex;
-          height: 280.61px;
-          padding: 24.38px 85.691px 24.615px 22.349px;
-          align-items: center;
-          align-self: stretch;
-          border: 1.625px solid rgba(0, 0, 0, 0);
-          background: linear-gradient(
-            212deg,
-            #a52629 5.64%,
-            rgba(215, 46, 59, 0.54) 102.91%,
-            rgba(239, 64, 87, 0) 137.49%
-          );
-        "
-      >
-        <div
-          class="content-block"
-          style="display: flex; gap: 25px; align-items: center"
-        >
           <div
-            class="block-left"
-            style="display: flex; flex-direction: column; gap: 15px"
-          >
-            <img
-              src="../assets/badge/photo.svg"
-              alt="photo-svg"
-              style="
-                width: 124.633px;
-                height: 169.022px;
-                flex-shrink: 0;
-                object-fit: cover;
-                border-radius: 8px;
-              "
-            />
-            <span
-              style="
-                color: #fff;
-                font-size: 19.692px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: 102%; /* 20.086px */
-                letter-spacing: 1.378px;
-                text-align: center;
-              "
-              >UZB</span
-            >
-          </div>
-          <div
-            class="block-right"
-            style="display: flex; flex-direction: column; gap: 15px"
+            class="header-right"
+            style="
+              width: 243.805px;
+              display: flex;
+              flex-direction: column;
+              gap: 40px;
+            "
           >
             <div
-              class="block-right-top"
+              class="header-right-top"
               style="
-                color: #fff;
-                font-size: 22.974px;
-                font-style: normal;
-                line-height: 102%; /* 23.433px */
-                letter-spacing: -0.23px;
-                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                gap: 22.97px;
+                margin-top: 29.54px;
               "
-            >
-              <div>Nodirbek <br />Abdusattorov</div>
-              <br />
-              <div
-                class="color: #fff; font-size: 29.538px; font-style: normal; font-weight: 600; line-height: 102%; letter-spacing: 0.295px; margin-top : 12px;"
-              >
-                PLAYER
-              </div>
-            </div>
-            <div
-              class="block-right-bottom"
-              style="display: flex; gap: 10px; align-items: center"
             >
               <img
-                src="../assets/badge/img.svg"
-                alt="bottom-img"
-                class="bottom-img"
+                src=""
+                alt="header-right-top"
                 style="
-                  width: 90px;
-                  height: 90.951px;
-                  border-radius: 5.103px;
-                  object-fit: cover;
+                  width: 42.666px;
+                  height: 42.666px;
+                  object-fit: contain;
+                  border: 1px solid rgba(0, 54, 63, 0.25);
                 "
               />
+              <img
+                src=""
+                alt="header-right-bottom"
+                style="
+                  width: 72.204px;
+                  height: 21.333px;
+                  object-fit: contain;
+                  border: 1px solid rgba(0, 54, 63, 0.25);
+                "
+              />
+            </div>
+            <div class="header-right-bottom" style="margin-bottom: 29px">
               <div
                 style="
-                  display: flex;
-                  padding: 12px;
-                  align-items: center;
-                  gap: 16.41px;
-                  border-radius: 6.564px;
-                  background: rgba(168, 55, 60, 0.52);
+                  color: #205f6a;
+                  font-size: 9.846px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
                 "
               >
+                46th FIDE
+              </div>
+              <h3
+                style="
+                  color: #00363f;
+                  font-size: 14.769px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: normal;
+                  letter-spacing: 0.886px;
+                  margin-bottom: 6.56px;
+                "
+              >
+                CHESS OLYMPIAD
+              </h3>
+              <span
+                style="
+                  color: #0e3f47;
+                  font-size: 11.487px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                  letter-spacing: -0.23px;
+                  display: flex;
+                "
+                >SAMARKAND</span
+              >
+              <span
+                style="
+                  color: #0e3f47;
+                  font-size: 11.487px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                  letter-spacing: -0.23px;
+                  display: flex;
+                "
+                >2025</span
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="badge-content"
+          style="
+            display: flex;
+            height: 280.61px;
+            padding: 24.38px 85.691px 24.615px 22.349px;
+            align-items: center;
+            align-self: stretch;
+            border: 1.625px solid rgba(0, 0, 0, 0);
+            background: linear-gradient(
+              212deg,
+              #a52629 5.64%,
+              rgba(215, 46, 59, 0.54) 102.91%,
+              rgba(239, 64, 87, 0) 137.49%
+            );
+          "
+        >
+          <div
+            class="content-block"
+            style="display: flex; gap: 25px; align-items: center"
+          >
+            <div
+              class="block-left"
+              style="display: flex; flex-direction: column; gap: 15px"
+            >
+              <img
+                src="../assets/badge/photo.svg"
+                alt="photo-svg"
+                style="
+                  width: 124.633px;
+                  height: 169.022px;
+                  flex-shrink: 0;
+                  object-fit: cover;
+                  border-radius: 8px;
+                "
+              />
+              <span
+                style="
+                  color: #fff;
+                  font-size: 19.692px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: 102%; 
+                  letter-spacing: 1.378px;
+                  text-align: center;
+                "
+                >UZB</span
+              >
+            </div>
+            <div
+              class="block-right"
+              style="display: flex; flex-direction: column; gap: 15px"
+            >
+              <div
+                class="block-right-top"
+                style="
+                  color: #fff;
+                  font-size: 22.974px;
+                  font-style: normal;
+                  line-height: 102%; 
+                  letter-spacing: -0.23px;
+                  text-transform: uppercase;
+                "
+              >
+                <div>Nodirbek <br />Abdusattorov</div>
+                <br />
+                <div
+                  class="color: #fff; font-size: 29.538px; font-style: normal; font-weight: 600; line-height: 102%; letter-spacing: 0.295px; margin-top : 12px;"
+                >
+                  PLAYER
+                </div>
+              </div>
+              <div
+                class="block-right-bottom"
+                style="display: flex; gap: 10px; align-items: center"
+              >
                 <img
-                  src="../assets/badge/qr.svg"
-                  alt="bottom-qr"
-                  class="bottom-qr"
-                  style="width: 80px; height: 80px; object-fit: contain"
+                  src="../assets/badge/img.svg"
+                  alt="bottom-img"
+                  class="bottom-img"
+                  style="
+                    width: 90px;
+                    height: 90.951px;
+                    border-radius: 5.103px;
+                    object-fit: cover;
+                  "
                 />
+                <div
+                  style="
+                    display: flex;
+                    padding: 12px;
+                    align-items: center;
+                    gap: 16.41px;
+                    border-radius: 6.564px;
+                    background: rgba(168, 55, 60, 0.52);
+                  "
+                >
+                  <img
+                    src="../assets/badge/qr.svg"
+                    alt="bottom-qr"
+                    class="bottom-qr"
+                    style="width: 80px; height: 80px; object-fit: contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="badge-number"
-        style="
-          height: 60.951px;
-          background: #fff;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 27.897px;
-        "
-      >
         <div
+          class="badge-number"
           style="
-            color: #23292c;
-            font-size: 26.256px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 102%; /* 26.781px */
-            letter-spacing: 0.525px;
+            height: 60.951px;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 27.897px;
           "
         >
-          A 0015
+          <div
+            style="
+              color: #23292c;
+              font-size: 26.256px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 102%; 
+              letter-spacing: 0.525px;
+            "
+          >
+            A 0015
+          </div>
+          <div
+            style="
+              color: #23292c;
+              font-size: 26.256px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 102%; 
+              letter-spacing: 0.525px;
+            "
+          >
+            A 0028
+          </div>
         </div>
         <div
+          class="badge-footer"
           style="
-            color: #23292c;
-            font-size: 26.256px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 102%; /* 26.781px */
-            letter-spacing: 0.525px;
+            background: rgba(210, 231, 237, 0.56);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22.974px;
+            padding: 5px 0;
           "
         >
-          A 0028
+          <img src="../assets/badge/footer1.svg" alt="footer1" />
+          <img src="../assets/badge/footer2.svg" alt="footer2" />
+          <img src="../assets/badge/footer3.svg" alt="footer3" />
+          <img src="../assets/badge/footer2.svg" alt="footer4" />
+          <img src="../assets/badge/footer4.svg" alt="footer5" />
         </div>
       </div>
       <div
-        class="badge-footer"
+        class="badge"
         style="
-          background: rgba(210, 231, 237, 0.56);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 22.974px;
-          padding: 5px 0;
-        "
-      >
-        <img src="../assets/badge/footer1.svg" alt="footer1" />
-        <img src="../assets/badge/footer2.svg" alt="footer2" />
-        <img src="../assets/badge/footer3.svg" alt="footer3" />
-        <img src="../assets/badge/footer2.svg" alt="footer4" />
-        <img src="../assets/badge/footer4.svg" alt="footer5" />
-      </div>
-    </div>
-    <div
-      class="badge"
-      style="
-        width: 420px;
-        height: 596px;
-        background: linear-gradient(
-          174deg,
-          #2488a6 -69.71%,
-          #c5e0e8 16.96%,
-          #fff 95.34%
-        );
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-      "
-    >
-      <div
-        style="
-          height: 486px;
-          border: 1.625px solid rgba(0, 0, 0, 0);
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            174deg,
+            #2488a6 -69.71%,
+            #c5e0e8 16.96%,
+            #fff 95.34%
+          );
+          overflow: hidden;
+          position: relative;
           display: flex;
-          align-items: center;
-          justify-content: center;
           flex-direction: column;
         "
       >
         <div
           style="
-            height: 255px;
-            width: 241px;
-            border: 1px solid black;
-          "
-        ></div>
-      </div>
-      <div
-        class="badge-number"
-        style="
-          height: 60.951px;
-          background: #fff;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 27.897px;
-        "
-      >
-        <div
-          style="
-            color: #23292c;
-            font-size: 26.256px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 102%; /* 26.781px */
-            letter-spacing: 0.525px;
+            height: 486px;
+            border: 1.625px solid rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
           "
         >
-          Доп информация
+          <div
+            style="height: 255px; width: 241px; border: 1px solid black"
+          ></div>
+        </div>
+        <div
+          class="badge-number"
+          style="
+            height: 60.951px;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 27.897px;
+          "
+        >
+          <div
+            style="
+              color: #23292c;
+              font-size: 26.256px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 102%; 
+              letter-spacing: 0.525px;
+            "
+          >
+            Доп информация
+          </div>
+        </div>
+        <div
+          class="badge-footer"
+          style="
+            background: rgba(210, 231, 237, 0.56);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22.974px;
+            padding: 5px 0;
+          "
+        >
+          <img src="../assets/badge/footer1.svg" alt="footer1" />
+          <img src="../assets/badge/footer2.svg" alt="footer2" />
+          <img src="../assets/badge/footer3.svg" alt="footer3" />
+          <img src="../assets/badge/footer2.svg" alt="footer4" />
+          <img src="../assets/badge/footer4.svg" alt="footer5" />
         </div>
       </div>
-      <div
-        class="badge-footer"
-        style="
-          background: rgba(210, 231, 237, 0.56);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 22.974px;
-          padding: 5px 0;
-        "
-      >
-        <img src="../assets/badge/footer1.svg" alt="footer1" />
-        <img src="../assets/badge/footer2.svg" alt="footer2" />
-        <img src="../assets/badge/footer3.svg" alt="footer3" />
-        <img src="../assets/badge/footer2.svg" alt="footer4" />
-        <img src="../assets/badge/footer4.svg" alt="footer5" />
-      </div>
     </div>
+    <button onclick="downloadPDF()" class="download-btn">Скачать PDF</button>
   </body>
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById("badgeContainer");
+      const opt = {
+        margin: 0,
+        filename: "badge.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: true,
+          letterRendering: true
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a5", 
+          orientation: "landscape",
+          compress: true
+        }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
 </html>

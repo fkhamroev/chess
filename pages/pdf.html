@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF</title>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
+    <style>
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+          background: none;
+        }
+        .badge-container {
+          width: 297mm;
+          height: 210mm;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: space-between;
+        }
+        .badge {
+          width: 148.5mm;
+          height: 140mm;
+          margin: 0;
+          padding: 0;
+          transform: scale(0.5);
+          transform-origin: center;
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+        button {
+          display: none !important;
+        }
+        .badge-footer {
+          justify-content: space-around;
+        }
+      }
+      body {
+        margin: 0;
+        background: #f5f5f5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .badge-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+      }
+
+      .badge {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        width: 100%;
+        height: 100%;
+      }
+      .download-btn {
+        background: #2488a6;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: "Unbounded";
+        font-size: 16px;
+        transition: background 0.3s;
+        margin-top: 20px;
+        min-width: 200px;
+        text-align: center;
+      }
+
+      .download-btn:hover {
+        background: #1b6d8a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="badge-container" id="badgeContainer">
+      <div
+        class="badge"
+        style="
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            174deg,
+            #2488a6 -69.71%,
+            #c5e0e8 16.96%,
+            #fff 95.34%
+          );
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div
+          style="
+            height: 440px;
+            border: 1.625px solid rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+          "
+        >
+          <div
+            style="height: 255px; width: 241px; border: 1px solid black"
+          ></div>
+        </div>
+        <div
+          class="badge-number"
+          style="
+            height: 60.951px;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 27.897px;
+          "
+        >
+          <div
+            style="
+              color: #23292c;
+              font-size: 26.256px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 102%;
+              letter-spacing: 0.525px;
+            "
+          >
+            Доп информация
+          </div>
+        </div>
+        <div
+          class="badge-footer"
+          style="
+            background: rgba(210, 231, 237, 0.56);
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            justify-content: center;
+            gap: 15px;
+          "
+        >
+          <img src="../assets/badge/footer1.svg" alt="footer1" />
+          <img src="../assets/badge/footer2.svg" alt="footer2" />
+          <img src="../assets/badge/footer3.svg" alt="footer3" />
+          <img src="../assets/badge/footer2.svg" alt="footer4" />
+          <img src="../assets/badge/footer4.svg" alt="footer5" />
+        </div>
+      </div>
+
+      <div
+        class="badge"
+        style="
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            174deg,
+            #2488a6 -69.71%,
+            #c5e0e8 16.96%,
+            #fff 95.34%
+          );
+          overflow: hidden;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+        "
+      >
+        <div
+          style="
+            height: 440px;
+            border: 1.625px solid rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+          "
+        >
+          <div
+            style="height: 255px; width: 241px; border: 1px solid black"
+          ></div>
+        </div>
+        <div
+          class="badge-number"
+          style="
+            height: 60.951px;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 27.897px;
+          "
+        >
+          <div
+            style="
+              color: #23292c;
+              font-size: 26.256px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 102%;
+              letter-spacing: 0.525px;
+            "
+          >
+            Доп информация
+          </div>
+        </div>
+        <div
+          class="badge-footer"
+          style="
+            background: rgba(210, 231, 237, 0.56);
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            justify-content: center;
+            gap: 15px;
+          "
+        >
+          <img src="../assets/badge/footer1.svg" alt="footer1" />
+          <img src="../assets/badge/footer2.svg" alt="footer2" />
+          <img src="../assets/badge/footer3.svg" alt="footer3" />
+          <img src="../assets/badge/footer2.svg" alt="footer4" />
+          <img src="../assets/badge/footer4.svg" alt="footer5" />
+        </div>
+      </div>
+    </div>
+    <div class="download-btn" onclick="downloadPDF()">Скачать PDF</div>
+  </body>
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById("badgeContainer");
+      const opt = {
+        margin: 0,
+        filename: "badge.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          logging: true,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: "mm",
+          format: "a5",
+          orientation: "landscape",
+          compress: true,
+        },
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</html>
