@@ -4,45 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PDF</title>
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-      /* @media print {
-        body {
-          margin: 0;
-          padding: 0;
-          background: none;
-          background-color: #a52629;
-        }
-        .badge-container {
-          width: 297mm !important;
-          height: 210mm !important;
-          margin: 0;
-          padding: 0;
-          display: flex !important;
-        }
-        .badge {
-          width: 148.5mm;
-          height: 140mm;
-          margin: 0;
-          padding: 0;
-          transform: scale(0.5);
-          transform-origin: center;
-          break-inside: avoid;
-          page-break-inside: avoid;
-          background: linear-gradient(
-            174deg,
-            #2488a6 -69.71%,
-            #c5e0e8 16.96%,
-            #fff 95.34%
-          );
-        }
-        button {
-          display: none !important;
-        }
-        .badge-footer {
-          justify-content: space-around;
-        }
-      } */
       body {
         margin: 0;
         background: #f5f5f5;
@@ -108,38 +72,44 @@
           display: flex;
           flex-direction: column;
           width: 148.5mm;
+          height: 794px;
           overflow: hidden;
         "
       >
         <div
           style="
-            height: 440px;
-            border: 1.625px solid rgba(0, 0, 0, 0);
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            overflow: hidden;
           "
         >
           <div
             class="badge-header"
             style="
-              height: 140px;
+              height: 150px;
               display: flex;
+              width: 100%;
               justify-content: space-between;
               align-items: center;
             "
           >
-            <div class="logo" style="position: relative; width: 40%">
+            <div
+              class="logo"
+              style="
+                position: relative;
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
               <img
-                src=""
+                src="{{ asset('frontend/assets/header_banner/chess_logo.svg') }}"
                 alt="logo"
-                style="
-                  width: 127px;
-                  height: 80px;
-                  object-fit: contain;
-                  border: 1px solid rgba(0, 54, 63, 0.25);
-                "
+                style="width: 100px; height: 100px; object-fit: contain"
               />
             </div>
             <div
@@ -155,7 +125,6 @@
               style="
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
                 width: 60%;
                 margin-left: 20px;
               "
@@ -163,30 +132,20 @@
               <div style="display: flex; align-items: center; gap: 20px">
                 <div style="position: relative; margin-top: 5px">
                   <img
-                    src=""
+                    src="{{ asset('frontend/assets/header_banner/fide.svg') }}"
                     alt="sponsor1"
-                    style="
-                      width: 127px;
-                      height: 80px;
-                      object-fit: contain;
-                      border: 1px solid rgba(0, 54, 63, 0.25);
-                    "
+                    style="width: 80px; height: 50px; object-fit: contain"
                   />
                 </div>
                 <div style="position: relative; margin-top: 5px">
                   <img
-                    src=""
+                    src="{{ asset($participant->qk_code_path) }}"
                     alt="sponsor2"
-                    style="
-                      width: 127px;
-                      height: 80px;
-                      object-fit: contain;
-                      border: 1px solid rgba(0, 54, 63, 0.25);
-                    "
+                    style="width: 80px; height: 50px; object-fit: contain"
                   />
                 </div>
               </div>
-              <div class="header-right-bottom" style="margin-bottom: 15px">
+              <div class="header-right-bottom">
                 <div
                   style="
                     color: #205f6a;
@@ -196,9 +155,9 @@
                     line-height: normal;
                   "
                 >
-                  46th FIDE
+                  {{ getLocale(optional($participant->tournament)->name) }}
                 </div>
-                <h3
+                <div
                   style="
                     color: #00363f;
                     font-size: 14.769px;
@@ -206,11 +165,13 @@
                     font-weight: 700;
                     line-height: normal;
                     letter-spacing: 0.886px;
-                    margin-bottom: 6.56px;
+                    margin: 5px 0;
                   "
                 >
-                  CHESS OLYMPIAD
-                </h3>
+                  {{
+                  getLocale(optional($participant->tournament)->category->name)
+                  }}
+                </div>
                 <span
                   style="
                     color: #0e3f47;
@@ -221,7 +182,8 @@
                     letter-spacing: -0.23px;
                     display: flex;
                   "
-                  >SAMARKAND</span
+                  >{{ optional($participant->tournament)->country->label_en
+                  }}</span
                 >
                 <span
                   style="
@@ -233,7 +195,9 @@
                     letter-spacing: -0.23px;
                     display: flex;
                   "
-                  >2025</span
+                  >{{
+                  optional($participant->tournament)->start_date->format('Y')
+                  }}</span
                 >
               </div>
             </div>
@@ -241,9 +205,8 @@
           <div
             class="badge-info"
             style="
-              height: 300px;
+              height: 450px;
               width: 148.5mm;
-              border: 1.625px solid rgba(0, 0, 0, 0);
               background: linear-gradient(
                 212deg,
                 #a52629 5.64%,
@@ -264,11 +227,11 @@
                 style="display: flex; flex-direction: column; gap: 15px"
               >
                 <img
-                  src="../assets/badge/photo.svg"
+                  src="{{ asset($participant->photo) }}"
                   alt="photo-svg"
                   style="
-                    width: 124.633px;
-                    height: 169.022px;
+                    width: 180px;
+                    height: 250px;
                     flex-shrink: 0;
                     object-fit: cover;
                     border-radius: 8px;
@@ -284,7 +247,7 @@
                     letter-spacing: 1.378px;
                     text-align: center;
                   "
-                  >UZB</span
+                  >{{ optional($participant->country)->name }}</span
                 >
               </div>
               <div
@@ -302,12 +265,17 @@
                     text-transform: uppercase;
                   "
                 >
-                  <div>Nodirbek <br />Abdusattorov</div>
+                  <div>
+                    {{ $participant->first_name }}<br />{{
+                    $participant->last_name }}
+                  </div>
                   <br />
                   <div
                     class="color: #fff; font-size: 29.538px; font-style: normal; font-weight: 600; line-height: 102%; letter-spacing: 0.295px; margin-top : 12px;"
                   >
-                    PLAYER
+                    {{
+                    getLocale(optional($participant->accreditationCategory)->name)
+                    }}
                   </div>
                 </div>
                 <div
@@ -315,12 +283,12 @@
                   style="display: flex; gap: 10px; align-items: center"
                 >
                   <img
-                    src="../assets/badge/img.svg"
+                    src="{{ asset('frontend/assets/badge/img.svg') }}"
                     alt="bottom-img"
                     class="bottom-img"
                     style="
-                      width: 90px;
-                      height: 90.951px;
+                      width: 112px;
+                      height: 112px;
                       border-radius: 5.103px;
                       object-fit: cover;
                     "
@@ -336,10 +304,10 @@
                     "
                   >
                     <img
-                      src="../assets/badge/qr.svg"
+                      src="{{ asset($participant->qk_code_path) }}"
                       alt="bottom-qr"
                       class="bottom-qr"
-                      style="width: 80px; height: 80px; object-fit: contain"
+                      style="width: 100px; height: 100px; object-fit: contain"
                     />
                   </div>
                 </div>
@@ -356,6 +324,8 @@
             align-items: center;
             justify-content: center;
             gap: 27.897px;
+            height: 100px;
+            overflow: hidden;
           "
         >
           <div
@@ -368,7 +338,7 @@
               letter-spacing: 0.525px;
             "
           >
-            A 0015
+          {{ $participant->passport_number }}
           </div>
         </div>
         <div
@@ -379,7 +349,9 @@
             align-items: center;
             padding: 5px 0;
             justify-content: center;
-            gap: 15px;
+            gap: 30px;
+            height: 94px;
+            overflow: hidden;
           "
         >
           <img src="../assets/badge/footer1.svg" alt="footer1" />
@@ -389,7 +361,6 @@
           <img src="../assets/badge/footer4.svg" alt="footer5" />
         </div>
       </div>
-
       <div
         class="badge"
         style="
@@ -402,11 +373,13 @@
           position: relative;
           display: flex;
           flex-direction: column;
+          height: 794px;
+          overflow: hidden;
         "
       >
         <div
           style="
-            height: 440px;
+            height: 600px;
             border: 1.625px solid rgba(0, 0, 0, 0);
             display: flex;
             align-items: center;
@@ -427,6 +400,8 @@
             align-items: center;
             justify-content: center;
             gap: 27.897px;
+            height: 100px;
+            overflow: hidden;
           "
         >
           <div
@@ -450,7 +425,9 @@
             align-items: center;
             padding: 5px 0;
             justify-content: center;
-            gap: 15px;
+            gap: 30px;
+            height: 94px;
+            overflow: hidden;
           "
         >
           <img src="../assets/badge/footer1.svg" alt="footer1" />
@@ -464,29 +441,18 @@
     <div class="download-btn" onclick="downloadPDF()">Скачать PDF</div>
   </body>
   <script>
-    function downloadPDF() {
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ format: "a5", orientation: "landscape" });
       const element = document.getElementById("badgeContainer");
-      const opt = {
-        margin: 0,
-        filename: "badge.pdf",
-        image: { type: "jpeg", quality: 1 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          logging: true,
-          letterRendering: true,
-          scrollY: 0,
-          scrollX: 0,
-        },
-        jsPDF: {
-          unit: "mm",
-          format: "a5",
-          orientation: "landscape",
-          compress: true,
-        },
-      };
 
-      html2pdf().set(opt).from(element).save();
+      const canvas = await html2canvas(element, { scale: 2, useCORS: true });
+      const imgData = canvas.toDataURL("image/png");
+      const imgWidth = 210;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+      doc.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      doc.save("badge.pdf");
     }
   </script>
 </html>
