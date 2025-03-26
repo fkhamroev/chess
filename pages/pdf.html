@@ -13,11 +13,11 @@
           background: none;
         }
         .badge-container {
-          width: 297mm;
-          height: 210mm;
+          width: 297mm !important;
+          height: 210mm !important;
           margin: 0;
           padding: 0;
-          display: flex;
+          display: flex !important;
           justify-content: space-between;
         }
         .badge {
@@ -29,6 +29,12 @@
           transform-origin: center;
           break-inside: avoid;
           page-break-inside: avoid;
+          background: linear-gradient(
+            174deg,
+            #2488a6 -69.71%,
+            #c5e0e8 16.96%,
+            #fff 95.34%
+          );
         }
         button {
           display: none !important;
@@ -41,22 +47,25 @@
         margin: 0;
         background: #f5f5f5;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
       .badge-container {
-        display: flex;
+        display: flex !important;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         gap: 0;
       }
 
       .badge {
         break-inside: avoid;
         page-break-inside: avoid;
-        width: 100%;
+        width: 148.5mm;
         height: 100%;
+        background: linear-gradient(
+          174deg,
+          #2488a6 -69.71%,
+          #c5e0e8 16.96%,
+          #fff 95.34%
+        );
       }
       .download-btn {
         background: #2488a6;
@@ -71,6 +80,11 @@
         margin-top: 20px;
         min-width: 200px;
         text-align: center;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px auto;
       }
 
       .download-btn:hover {
@@ -83,18 +97,17 @@
       <div
         class="badge"
         style="
-          width: 100%;
-          height: 100%;
           background: linear-gradient(
             174deg,
             #2488a6 -69.71%,
             #c5e0e8 16.96%,
             #fff 95.34%
           );
-          overflow: hidden;
           position: relative;
           display: flex;
           flex-direction: column;
+          width: 148.5mm;
+          overflow: hidden;
         "
       >
         <div
@@ -108,8 +121,231 @@
           "
         >
           <div
-            style="height: 255px; width: 241px; border: 1px solid black"
-          ></div>
+            class="badge-header"
+            style="
+              height: 140px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div class="logo" style="position: relative; width: 40%">
+              <img
+                src=""
+                alt="logo"
+                style="
+                  width: 127px;
+                  height: 80px;
+                  object-fit: contain;
+                  border: 1px solid rgba(0, 54, 63, 0.25);
+                "
+              />
+            </div>
+            <div
+              class="header-line"
+              style="
+                width: 2px;
+                height: 100%;
+                background: rgba(0, 54, 63, 0.25);
+              "
+            ></div>
+            <div
+              class="header-right"
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 60%;
+                margin-left: 20px;
+              "
+            >
+              <div style="display: flex; align-items: center; gap: 20px">
+                <div style="position: relative; margin-top: 5px">
+                  <img
+                    src=""
+                    alt="sponsor1"
+                    style="
+                      width: 127px;
+                      height: 80px;
+                      object-fit: contain;
+                      border: 1px solid rgba(0, 54, 63, 0.25);
+                    "
+                  />
+                </div>
+                <div style="position: relative; margin-top: 5px">
+                  <img
+                    src=""
+                    alt="sponsor2"
+                    style="
+                      width: 127px;
+                      height: 80px;
+                      object-fit: contain;
+                      border: 1px solid rgba(0, 54, 63, 0.25);
+                    "
+                  />
+                </div>
+              </div>
+              <div class="header-right-bottom" style="margin-bottom: 15px">
+                <div
+                  style="
+                    color: #205f6a;
+                    font-size: 9.846px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                  "
+                >
+                  46th FIDE
+                </div>
+                <h3
+                  style="
+                    color: #00363f;
+                    font-size: 14.769px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    letter-spacing: 0.886px;
+                    margin-bottom: 6.56px;
+                  "
+                >
+                  CHESS OLYMPIAD
+                </h3>
+                <span
+                  style="
+                    color: #0e3f47;
+                    font-size: 11.487px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.23px;
+                    display: flex;
+                  "
+                  >SAMARKAND</span
+                >
+                <span
+                  style="
+                    color: #0e3f47;
+                    font-size: 11.487px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    letter-spacing: -0.23px;
+                    display: flex;
+                  "
+                  >2025</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="badge-info"
+            style="
+              height: 300px;
+              width: 148.5mm;
+              border: 1.625px solid rgba(0, 0, 0, 0);
+              background: linear-gradient(
+                212deg,
+                #a52629 5.64%,
+                rgba(215, 46, 59, 0.54) 102.91%,
+                rgba(239, 64, 87, 0) 137.49%
+              );
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding-left: 10px;
+            "
+          >
+            <div
+              class="content-block"
+              style="display: flex; gap: 25px; align-items: center"
+            >
+              <div
+                class="block-left"
+                style="display: flex; flex-direction: column; gap: 15px"
+              >
+                <img
+                  src="../assets/badge/photo.svg"
+                  alt="photo-svg"
+                  style="
+                    width: 124.633px;
+                    height: 169.022px;
+                    flex-shrink: 0;
+                    object-fit: cover;
+                    border-radius: 8px;
+                  "
+                />
+                <span
+                  style="
+                    color: #fff;
+                    font-size: 19.692px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 102%;
+                    letter-spacing: 1.378px;
+                    text-align: center;
+                  "
+                  >UZB</span
+                >
+              </div>
+              <div
+                class="block-right"
+                style="display: flex; flex-direction: column; gap: 15px"
+              >
+                <div
+                  class="block-right-top"
+                  style="
+                    color: #fff;
+                    font-size: 22.974px;
+                    font-style: normal;
+                    line-height: 102%;
+                    letter-spacing: -0.23px;
+                    text-transform: uppercase;
+                  "
+                >
+                  <div>Nodirbek <br />Abdusattorov</div>
+                  <br />
+                  <div
+                    class="color: #fff; font-size: 29.538px; font-style: normal; font-weight: 600; line-height: 102%; letter-spacing: 0.295px; margin-top : 12px;"
+                  >
+                    PLAYER
+                  </div>
+                </div>
+                <div
+                  class="block-right-bottom"
+                  style="display: flex; gap: 10px; align-items: center"
+                >
+                  <img
+                    src="../assets/badge/img.svg"
+                    alt="bottom-img"
+                    class="bottom-img"
+                    style="
+                      width: 90px;
+                      height: 90.951px;
+                      border-radius: 5.103px;
+                      object-fit: cover;
+                    "
+                  />
+                  <div
+                    style="
+                      display: flex;
+                      padding: 12px;
+                      align-items: center;
+                      gap: 16.41px;
+                      border-radius: 6.564px;
+                      background: rgba(168, 55, 60, 0.52);
+                    "
+                  >
+                    <img
+                      src="../assets/badge/qr.svg"
+                      alt="bottom-qr"
+                      class="bottom-qr"
+                      style="width: 80px; height: 80px; object-fit: contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           class="badge-number"
@@ -132,7 +368,7 @@
               letter-spacing: 0.525px;
             "
           >
-            Доп информация
+            A 0015
           </div>
         </div>
         <div
@@ -157,15 +393,12 @@
       <div
         class="badge"
         style="
-          width: 100%;
-          height: 100%;
           background: linear-gradient(
             174deg,
             #2488a6 -69.71%,
             #c5e0e8 16.96%,
             #fff 95.34%
           );
-          overflow: hidden;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -242,6 +475,10 @@
           useCORS: true,
           logging: true,
           letterRendering: true,
+          scrollY: 0,
+          scrollX: 0,
+          windowWidth: document.documentElement.scrollWidth,
+          windowHeight: document.documentElement.scrollHeight,
         },
         jsPDF: {
           unit: "mm",
