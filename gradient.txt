@@ -1,0 +1,13 @@
+PLAYER : linear-gradient(212deg, #C32022 5.64%, rgba(215, 46, 59, 0.54) 102.91%, rgba(239, 64, 87, 0.00) 137.49%)
+FIDE :linear-gradient(34deg, #29B7D0 -52.14%, #064B5A 142.1%);
+MEDIA : linear-gradient(224deg, #154567 -32.24%, #2782EB 110.77%);
+BROADCAST : linear-gradient(34deg, #DF9E82 -52.14%, #A56143 142.1%);
+ORG.COMITTEE :linear-gradient(34deg, #9850C1 -52.14%, #57319E 142.1%);
+PERSONNEL : linear-gradient(34deg, #349D70 -52.14%, #4B7974 142.1%);
+VOLUNTEER : linear-gradient(34deg, #E0BB75 -52.14%, #8F7038 142.1%);
+ARBITER :linear-gradient(34deg, #989641 -52.14%, #5B6A1B 142.1%);
+SECURITY :linear-gradient(34deg, #82959E -52.14%, #4C6068 142.1%);
+VIP : linear-gradient(34deg, #DF9582 -52.14%, #7A184A 142.1%);
+MARKETING PARTNER :  linear-gradient(34deg, #3F8AC2 -52.14%, #0B4C58 142.1%);
+ACCOMPANYING PERSON : linear-gradient(34deg, #6FA489 -52.14%, #153B44 142.1%);
+HOSPITALITY :linear-gradient(34deg, rgba(125, 175, 199, 0.51) -52.14%, rgba(118, 174, 197, 0.38) 142.1%);
